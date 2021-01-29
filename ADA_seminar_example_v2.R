@@ -2,7 +2,7 @@
 #read in ADA functions
 #calculating probability weighted estimates, including balance checking diagnostics and KM Plots
 # set  path to home directory, below only example
-setwd('G:/My Drive/BBScausality_Code')
+setwd('C:/My Path/Code_BBStrainingCausality')
 source('ADA_functions_v2.R')
 library(survival)
 library("survminer")
@@ -42,9 +42,9 @@ sformula=as.formula(Surv(AVAL,CNSR==0)~indicator+AGE65+BECOG+SEX+BNLR+TOBHX+RACE
 #create numerical variable reflecting ADA status at landmark (for easier programming in later functions performing 
 # the principal stratum analysis)
 ## value of 3 would only occur in case of missing ADA status at landmark
-data.ldmrk$ADALMnum = ifelse(data.ldmrk$ADALM4=="ADA- 4 weeks", 1,
-                     ifelse(data.ldmrk$ADALM4=="ADA+ 4 weeks", 2,
-                            ifelse(data.ldmrk$ADALM4=="CONTROL",0,3))) 
+data.ldmrk$ADALMnum = ifelse(data.ldmrk$ADALM=="ADA- 4 weeks", 1,
+                     ifelse(data.ldmrk$ADALM=="ADA+ 4 weeks", 2,
+                            ifelse(data.ldmrk$ADALM=="CONTROL",0,3))) 
 
 # set numerical variable reflecting experimental/control treatment arm (1= experimental, 0=control)
 data.ldmrk$trt=ifelse(data.ldmrk$ACTARM=="EXPERIMENTAL", 1, 0)
