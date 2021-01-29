@@ -1,7 +1,7 @@
 
 #read in ADA functions
 #calculating probability weighted estimates, including balance checking diagnostics and KM Plots
-# set path to home directory, below only example
+# set  path to home directory, below only example
 setwd('G:/My Drive/BBScausality_Code')
 source('ADA_functions_v2.R')
 library(survival)
